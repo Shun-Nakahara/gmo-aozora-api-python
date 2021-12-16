@@ -404,6 +404,7 @@ class BulkTransferApi(object):
 
         all_params = ['body', 'x_access_token']  # noqa: E501
         all_params.append('async_req')
+        all_params.append('idempotency_key')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -435,6 +436,9 @@ class BulkTransferApi(object):
         header_params = {}
         if 'x_access_token' in params:
             header_params['x-access-token'] = params['x_access_token']  # noqa: E501
+
+        if 'idempotency_key' in params:
+            header_params['Idempotency-Key'] = params['idempotency_key']
 
         form_params = []
         local_var_files = {}
